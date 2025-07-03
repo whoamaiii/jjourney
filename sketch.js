@@ -164,8 +164,8 @@ function createProceduralTileset() {
     // Sunstone (96,0)
     drawCrystalAt(tileset, 96, 0, [255, 223, 0]); // Yellow sunstone
     
-    // Crumbling block (96,0) - using same position as sunstone, will fix
-    drawTileAt(tileset, 96, 0, [160, 82, 45], [139, 69, 19], false, true); // Cracked ground
+    // Crumbling block (96,32) - moved to avoid sunstone overlap
+    drawTileAt(tileset, 96, 32, [160, 82, 45], [139, 69, 19], false, true); // Cracked ground
     
     // Enemy slug frames (0,64) and (32,64)
     drawSlugAt(tileset, 0, 64, [120, 100, 90]); // Frame 1
@@ -490,7 +490,9 @@ function initializeGame() {
         invulnerable: false,
         invulnerabilityTime: 0,
         isAttacking: false,
-        isDodging: false
+        isDodging: false,
+        // Assign damage method
+        takeDamage: playerTakeDamage
     };
     
     camera = {
