@@ -10,7 +10,7 @@
  */
 
 const LEVEL1_CONFIG = {
-    name: "Whispering Clearing",
+    name: 'Whispering Clearing',
     width: 120, // tiles
     height: 30, // tiles
     tileSize: 32,
@@ -27,25 +27,25 @@ const LEVEL1_CONFIG = {
         spawnGlade: {
             startX: 0,
             endX: 30,
-            description: "Safe starting area with tutorial prompts",
+            description: 'Safe starting area with tutorial prompts',
             features: ['mentor_runestone', 'movement_tutorial', 'parallax_oaks']
         },
         canopyPass: {
             startX: 30,
             endX: 60,
-            description: "Vertical climbing section with vine mechanics",
+            description: 'Vertical climbing section with vine mechanics',
             features: ['vine_ladders', 'collapsible_branches', 'height_challenge']
         },
         tricklebrook: {
             startX: 60,
             endX: 90,
-            description: "Water area with first combat encounters",
+            description: 'Water area with first combat encounters',
             features: ['shallow_water', 'bridge', 'sproutling_enemy', 'foraging_boar']
         },
         elderOakAtrium: {
             startX: 90,
             endX: 120,
-            description: "Circular arena for mini-boss fight",
+            description: 'Circular arena for mini-boss fight',
             features: ['giant_tree_backdrop', 'root_pillars', 'mutated_sproutling_boss']
         }
     },
@@ -82,19 +82,19 @@ const LEVEL1_CONFIG = {
     tutorials: {
         movement: {
             trigger: { x: 5, y: 20 },
-            message: "Use arrow keys to move, SPACE to jump"
+            message: 'Use arrow keys to move, SPACE to jump'
         },
         climbing: {
             trigger: { x: 35, y: 15 },
-            message: "Press UP near vines to climb"
+            message: 'Press UP near vines to climb'
         },
         combat: {
             trigger: { x: 65, y: 20 },
-            message: "Press Z to attack, X to dodge-roll"
+            message: 'Press Z to attack, X to dodge-roll'
         },
         parry: {
             trigger: { x: 70, y: 20 },  
-            message: "Hold SHIFT to block incoming attacks"
+            message: 'Hold SHIFT to block incoming attacks'
         }
     },
     
