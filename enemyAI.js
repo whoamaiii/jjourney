@@ -192,7 +192,7 @@ class EnemyAI {
             // Boss intro animation
             this.state = 'intro';
             this.bossIntroComplete = true;
-            if (typeof createBossTitle !== 'undefined') createBossTitle("Corrupted Sproutling");
+            if (typeof createBossTitle !== 'undefined') createBossTitle('Corrupted Sproutling');
             return;
         }
         
@@ -413,7 +413,7 @@ class EnemyAI {
         fill(255);
         textAlign(CENTER);
         textSize(24);
-        text("Corrupted Sproutling", width/2, y - 10);
+        text('Corrupted Sproutling', width/2, y - 10);
         
         pop();
     }

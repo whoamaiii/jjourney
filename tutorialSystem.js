@@ -114,28 +114,28 @@ class TutorialSystem {
         const keySize = 30;
         const keyY = y + h - 40;
         
-        if (this.currentTutorial.message.includes("arrow keys")) {
+        if (this.currentTutorial.message.includes('arrow keys')) {
             // Draw arrow keys
-            this.drawKey(x + w/2 - 70, keyY, "←", keySize);
-            this.drawKey(x + w/2 - 35, keyY, "↓", keySize);
-            this.drawKey(x + w/2, keyY, "↑", keySize);
-            this.drawKey(x + w/2 + 35, keyY, "→", keySize);
+            this.drawKey(x + w/2 - 70, keyY, '←', keySize);
+            this.drawKey(x + w/2 - 35, keyY, '↓', keySize);
+            this.drawKey(x + w/2, keyY, '↑', keySize);
+            this.drawKey(x + w/2 + 35, keyY, '→', keySize);
         }
         
-        if (this.currentTutorial.message.includes("SPACE")) {
-            this.drawKey(x + w/2 + 80, keyY, "SPACE", keySize * 2.5, keySize);
+        if (this.currentTutorial.message.includes('SPACE')) {
+            this.drawKey(x + w/2 + 80, keyY, 'SPACE', keySize * 2.5, keySize);
         }
         
-        if (this.currentTutorial.message.includes("Z")) {
-            this.drawKey(x + w/2 - 50, keyY, "Z", keySize);
+        if (this.currentTutorial.message.includes('Z')) {
+            this.drawKey(x + w/2 - 50, keyY, 'Z', keySize);
         }
         
-        if (this.currentTutorial.message.includes("X")) {
-            this.drawKey(x + w/2, keyY, "X", keySize);
+        if (this.currentTutorial.message.includes('X')) {
+            this.drawKey(x + w/2, keyY, 'X', keySize);
         }
         
-        if (this.currentTutorial.message.includes("SHIFT")) {
-            this.drawKey(x + w/2 + 50, keyY, "SHIFT", keySize * 2, keySize);
+        if (this.currentTutorial.message.includes('SHIFT')) {
+            this.drawKey(x + w/2 + 50, keyY, 'SHIFT', keySize * 2, keySize);
         }
     }
     

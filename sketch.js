@@ -75,16 +75,16 @@ const ANIMATION_DEFS = {
 
 // --- p5.js Lifecycle Functions ---
 function preload() {
-    console.log("Starting preload...");
-    try {
-        // Create a procedural tileset instead of loading external image
-        createProceduralTileset();
-        
-        // Load base player sprite (for idle and jump) - using first walk frame as idle
-        playerSprite = loadImage('Animation/Walk Cycle/Right foot forward, left arm forward, slight forward lean.png',
-            () => console.log("Base player sprite loaded successfully"),
-            () => console.error("Failed to load base player sprite")
-        );
+            console.log('Starting preload...');
+        try {
+            // Create a procedural tileset instead of loading external image
+            createProceduralTileset();
+            
+            // Load base player sprite (for idle and jump) - using first walk frame as idle
+            playerSprite = loadImage('Animation/Walk Cycle/Right foot forward, left arm forward, slight forward lean.png',
+                () => console.log('Base player sprite loaded successfully'),
+                () => console.error('Failed to load base player sprite')
+            );
         
         // Load walk cycle frames
         const walkFrameNames = [
@@ -124,10 +124,10 @@ function preload() {
             );
         }
         
-        console.log("Animation frames loading initiated");
+        console.log('Animation frames loading initiated');
         
     } catch (error) {
-        console.error("Error in preload:", error);
+        console.error('Error in preload:', error);
     }
 
     // NOTE: The sound files below are placeholders.
@@ -175,7 +175,7 @@ function createProceduralTileset() {
     drawTileAt(tileset, 64, 64, [20, 40, 100], [10, 20, 50]); // Dark blue
     
     tileset.updatePixels();
-    console.log("Procedural tileset created");
+    console.log('Procedural tileset created');
 }
 
 function drawTileAt(img, x, y, color1, color2, vertical = false, cracked = false) {
@@ -244,21 +244,21 @@ function drawSlugAt(img, x, y, color) {
 }
 
 function setup() {
-    console.log("Starting setup...");
+    console.log('Starting setup...');
     try {
         createCanvas(1920, 1080); // Full HD resolution
-        console.log("Canvas created");
+        console.log('Canvas created');
         
         // Set up idle and jump animations to use base sprite
         animationFrames.idle[0] = playerSprite;
         animationFrames.jump[0] = playerSprite;
         
-        console.log("Setup completed successfully");
+        console.log('Setup completed successfully');
         
         initializeGame();
-        console.log("Game initialized");
+        console.log('Game initialized');
     } catch (error) {
-        console.error("Error in setup:", error);
+        console.error('Error in setup:', error);
     }
 }
 
@@ -280,10 +280,10 @@ function draw() {
 }
 
 function mousePressed() {
-    console.log("Mouse pressed! Current gameState:", gameState);
+    console.log('Mouse pressed! Current gameState:', gameState);
     switch (gameState) {
         case 'mainMenu':
-            console.log("Transitioning from mainMenu to playing");
+            console.log('Transitioning from mainMenu to playing');
             gameState = 'playing';
             // Start background music on loop
             if (bgMusic && !bgMusic.isPlaying()) {
@@ -292,7 +292,7 @@ function mousePressed() {
             break;
         case 'gameOver':
         case 'levelComplete':
-            console.log("Restarting game");
+            console.log('Restarting game');
             if (bgMusic) {
                 bgMusic.stop();
             }
@@ -402,9 +402,9 @@ function drawMainMenu() {
     fill(255);
     textSize(64);
     textAlign(CENTER, CENTER);
-    text("Jenny's Journey", width / 2, height / 2 - 50);
+    text('Jenny\'s Journey', width / 2, height / 2 - 50);
     textSize(32);
-    text("Click to Start", width / 2, height / 2 + 50);
+    text('Click to Start', width / 2, height / 2 + 50);
 }
 
 function drawGameOver() {
@@ -412,9 +412,9 @@ function drawGameOver() {
     fill(255);
     textSize(64);
     textAlign(CENTER, CENTER);
-    text("Game Over", width / 2, height / 2 - 50);
+    text('Game Over', width / 2, height / 2 - 50);
     textSize(32);
-    text("Click to Try Again", width / 2, height / 2 + 50);
+    text('Click to Try Again', width / 2, height / 2 + 50);
 }
 
 function drawLevelClear() {
@@ -422,19 +422,19 @@ function drawLevelClear() {
     fill(255);
     textSize(64);
     textAlign(CENTER, CENTER);
-    text("Level Clear!", width / 2, height / 2 - 50);
+    text('Level Clear!', width / 2, height / 2 - 50);
     textSize(32);
-    text("Click to Play Again", width / 2, height / 2 + 50);
+    text('Click to Play Again', width / 2, height / 2 + 50);
 }
 
 // --- Game Initialization ---
 function initializeGame() {
-    console.log("Starting game initialization...");
+    console.log('Starting game initialization...');
     // Initialize game systems
     visualEffects = new VisualEffects();
-    console.log("VisualEffects initialized");
+    console.log('VisualEffects initialized');
     tutorialSystem = new TutorialSystem();
-    console.log("TutorialSystem initialized");
+    console.log('TutorialSystem initialized');
 
     // Initialize game state
     score = 0;
@@ -709,7 +709,7 @@ function updatePlayer(deltaTime) {
     // --- Power-up Timers ---
     if (player.sunstoneActive && millis() > player.sunstoneTimer) {
         player.sunstoneActive = false;
-        console.log("Sunstone power-up expired.");
+                    console.log('Sunstone power-up expired.');
     }
 
     let currentSpeed = MOVE_SPEED;
@@ -729,7 +729,7 @@ function updatePlayer(deltaTime) {
             player.isDying = true;
             player.deathTimer = 30; // Half second death animation
             player.vy = -8; // Small hop
-            console.log("Fell into deep water!");
+            console.log('Fell into deep water!');
         }
         return;
     }
@@ -740,7 +740,7 @@ function updatePlayer(deltaTime) {
     if (getTile(playerCenterTileX, playerCenterTileY) === 7) {
         levelComplete = true;
         if (winSound) winSound.play();
-        console.log("Level Clear!");
+        console.log('Level Clear!');
         return;
     }
 
@@ -879,7 +879,7 @@ function updatePlayer(deltaTime) {
         if (!player.isDying) {
             player.isDying = true;
             player.deathTimer = 30;
-            console.log("Fell off the level!");
+            console.log('Fell off the level!');
         }
         return;
     }
@@ -917,7 +917,7 @@ function updatePlayer(deltaTime) {
                     createBurst(enemy.x + enemy.width / 2, enemy.y + enemy.height / 2, [120, 100, 90]);
                     if (stompSound) stompSound.play();
                 } else {
-                    console.log("Player hit enemy from the side. Resetting.");
+                    console.log('Player hit enemy from the side. Resetting.');
                     gameState = 'gameOver';
                     break; // Exit loop after reset
                 }
@@ -1398,7 +1398,7 @@ function updatePowerUps() {
                 if (powerUp.type === 'sunstone') {
                     player.sunstoneActive = true;
                     player.sunstoneTimer = millis() + 10000; // 10 seconds duration
-                    console.log("Sunstone power-up collected!");
+                    console.log('Sunstone power-up collected!');
                     createBurst(powerUp.x + TILE_SIZE / 2, powerUp.y + TILE_SIZE / 2, [255, 223, 0]);
                     if (powerupSound) powerupSound.play();
                 }
