@@ -294,7 +294,7 @@ class EnemyAI {
             
             // Check collision with player
             if (this.rectsOverlap(proj, player) && !player.invulnerable) {
-                player.takeDamage(proj.damage);
+                playerTakeDamage(proj.damage);
                 this.projectiles.splice(i, 1);
                 continue;
             }
